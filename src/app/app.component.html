@@ -45,7 +45,9 @@
     class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5"
   >
     <h2 class="m-0">
-      <a class=".navbar-brand " routerLink="/home" alt=""><img src="../assets/images/logo.png"  height="50" alt=""></a>
+      <a class=".navbar-brand" routerLink="/home" alt=""
+        ><img src="../assets/images/logo.png" height="50" alt=""
+      /></a>
     </h2>
   </a>
   <button
@@ -99,10 +101,10 @@
     <ng-container
       *ngIf="authService.curentUser | async as user; else loginButton"
     >
-      <div class="dropdown">
+      <div class="nav-item dropdown">
         <a
           class="btn btn-outline-warning me-2 dropdown-toggle"
-          style="height: 70%;"
+          style="height: 70%"
           id="dropdownMenuButton1"
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -118,13 +120,15 @@
       </div>
     </ng-container>
     <ng-template #loginButton>
-      <a routerLink="/signIn" class="btn btn-outline-warning me-2"style="height: 70%;"
+      <a
+        routerLink="/signIn"
+        class="btn btn-outline-warning me-2"
+        style="height: 70%"
         >Get Started<i class="fa fa-arrow-right ms-3"></i>
       </a>
     </ng-template>
   </div>
 </nav>
 <!-- Navbar End -->
-
 
 <router-outlet></router-outlet>

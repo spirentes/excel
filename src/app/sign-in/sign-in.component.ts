@@ -34,7 +34,7 @@ export class SignInComponent {
       this.toast.observe({
         success:"logged in successfulyy",
         loading:"loading..",
-        error:"there was an error"
+        error:(err)=>'Something did not work, reason: ' + err,
       })
     ).subscribe(()=>{this.route.navigate(['/home'])});
   }

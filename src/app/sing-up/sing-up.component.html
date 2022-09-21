@@ -1,4 +1,4 @@
-<section class="vh-100 " style="background-color: #508bfc">
+<section class="vh-100" style="background-color: #508bfc">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -6,8 +6,8 @@
           <div class="card-body p-5 text-center">
             <h3 class="mb-5">Sign up</h3>
             <form [formGroup]="signUpForm" (ngSubmit)="submit()">
-               <div class="form-outline mb-4">
-                <label class="form-label" for="typeEmailX-2">userName</label>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="typeEmailX-2">User Name</label>
                 <input
                   type="text"
                   class="form-control form-control-lg"
@@ -20,11 +20,14 @@
                   class="invalid-feedback"
                   *ngIf="userName?.hasError('required')"
                 >
-                 userName required
+                  User Name required
                 </div>
 
-                <div class="invalid-feedback" *ngIf="email?.hasError('email')">
-                  use correct email form
+                <div
+                  class="invalid-feedback"
+                  *ngIf="userName?.hasError('minlength')"
+                >
+                  User Name must be at least 3 characters long
                 </div>
               </div>
               <div class="form-outline mb-4">
@@ -42,11 +45,11 @@
                   class="invalid-feedback"
                   *ngIf="email?.hasError('required')"
                 >
-                  email required
+                  Email required
                 </div>
 
                 <div class="invalid-feedback" *ngIf="email?.hasError('email')">
-                  use correct email form
+                  Incorrect Email Form
                 </div>
               </div>
 
@@ -65,24 +68,24 @@
                   class="invalid-feedback"
                   *ngIf="Password?.hasError('required')"
                 >
-                  password required
+                  Password required
                 </div>
                 <div
                   class="invalid-feedback"
-                  *ngIf="Password?.hasError('minLength')"
+                  *ngIf="Password?.hasError('minlength')"
                 >
-                  password should be at least 6 character
+                  Password must be at least 6 characters long
                 </div>
               </div>
               <div class="form-outline mb-4">
                 <label class="form-label" for="typePasswordX-2"
-                  >ConfirmPassword</label
+                  >Confirm Password</label
                 >
                 <input
                   type="password"
                   id="typePasswordX-2"
                   class="form-control form-control-lg"
-                  formControlName=" confirmPassword"
+                  formControlName="confirmPassword"
                   [ngClass]="{
                     'is-invalid':
                       confirmPassword?.errors && confirmPassword?.touched
@@ -92,8 +95,9 @@
                   class="invalid-feedback"
                   *ngIf="confirmPassword?.hasError('required')"
                 >
-                  confirmassword required
+                  Confirm Password required
                 </div>
+                <div class="invalid-feedback" *ngIf="confirmPassword?.hasError('passwordMismatch')">Password don't match</div>
               </div>
 
               <!-- Checkbox -->

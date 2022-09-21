@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
@@ -21,8 +21,17 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { NgwWowModule } from 'ngx-wow';
 
+
 @NgModule({
-  declarations: [AppComponent, SignInComponent, HomeComponent, SingUpComponent, CoursesComponent, AboutComponent, ContactComponent],
+  declarations: [
+    AppComponent,
+    SignInComponent,
+    HomeComponent,
+    SingUpComponent,
+    CoursesComponent,
+    AboutComponent,
+    ContactComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,9 +39,10 @@ import { NgwWowModule } from 'ngx-wow';
     HotToastModule.forRoot(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    FontAwesomeModule,
-    NgwWowModule
     
+    FontAwesomeModule,
+    NgwWowModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent],
