@@ -1,0 +1,180 @@
+<div
+  class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn"
+  data-wow-delay="0.1s"
+>
+  <div class="container text-center">
+    <h1 class="display-5 text-white animated slideInDown mb-4">Jobs</h1>
+
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+        <li class="breadcrumb-item">
+          <a class="text-white" href="#">Pages</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a class="text-white" href="#">Contact</a>
+        </li>
+        <li class="breadcrumb-item text-primary active" aria-current="page">
+          Jobs
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<div class="container-fluid text-center">
+  <h3>
+    Excel actively recruits instructors in English, German, French and Spanish.
+    Send us your request<br />
+    We will be happy to contact you
+  </h3>
+</div>
+
+<div class="row d-flex justify-content-center py-6">
+  <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+    <h6 class="text-primary text-uppercase text-center mb-2">Application</h6>
+    <h1 class="display-6 mb-4">
+      Please submit your application, We will contact you as soon as possible.
+    </h1>
+
+    <form [formGroup]="jobForm">
+      <div class="row g-3">
+        <div class="col-12">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control border-0 bg-light"
+              formControlName="name"
+              id="subject"
+              placeholder="Enter your full name"
+              [ngClass]="{
+                'is-invalid':
+                  this.jobForm.get('name')?.touched &&
+                  this.jobForm.get('name')?.errors
+              }"
+            />
+            <label for="subject">Full Name</label>
+            <div
+              class="invalid-feedback"
+              *ngIf="this.jobForm.get('name')?.hasError('required')"
+            >
+              Field required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+         <div class="form-floating">
+                <input
+                  type="email"
+                  class="form-control border-0 bg-light"
+                   formControlName="email"
+                  id="email"
+                  placeholder="Your Email"
+                  [ngClass]="{'is-invalid':this.jobForm.get('email')?.touched && this.jobForm.get('email')?.errors}"
+                />
+                <label for="email">Your Email</label>
+                <div  class="invalid-feedback" *ngIf="this.jobForm.get('email')?.hasError('required')">Field required</div>
+                <div  class="invalid-feedback" *ngIf="this.jobForm.get('email')?.hasError('email')">use correct form</div>
+              </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-floating">
+            <input
+              type="tel"
+              class="form-control border-0 bg-light"
+              formControlName="tel"
+              id="tel"
+              placeholder="Your Phone Number"
+              [ngClass]="{
+                'is-invalid':
+                  this.jobForm.get('tel')?.touched &&
+                  this.jobForm.get('tel')?.errors
+              }"
+            />
+            <label for="tel">phone</label>
+            <div
+              class="invalid-feedback"
+              *ngIf="this.jobForm.get('tel')?.hasError('required')"
+            >
+              Field required
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="this.jobForm.get('tel')?.hasError('pattern')"
+            >
+              Use Valid Phone Format
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-floating">
+            <select
+              class="form-control border-0 bg-light"
+              name=""
+              id="option"
+              formControlName="service"
+            >
+              <option value="" disabled>chose a language</option>
+              <option *ngFor="let option of options" [ngValue]="option">
+                {{ option }}
+              </option>
+            </select>
+            <label for="option">service</label>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-floating">
+            <textarea
+              class="form-control border-0 bg-light"
+              placeholder="Leave a message here"
+              formControlName="message"
+              id="message"
+              style="height: 150px"
+              [ngClass]="{
+                'is-invalid':
+                  this.jobForm.get('message')?.touched &&
+                  this.jobForm.get('message')?.errors
+              }"
+            ></textarea>
+            <label for="message">Say a few words about your motives</label>
+            <div
+              class="invalid-feedback"
+              *ngIf="this.jobForm.get('message')?.hasError('required')"
+            >
+              Field required
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="cv"
+            >Your CV in English (accepted format: PDF max. 4 MB)</label
+          >
+          <input
+            type="file"
+            (change)="chooseFile($event)"
+            class="form-control border-0 bg-light"
+          />
+        </div>
+        <div class="col-12">
+          <label for="cv"
+            >Diplomas and certificates (format accepted: PDF max. 4 MB)</label
+          >
+          <input
+            type="file"
+            (change)="chooseFile($event)"
+            class="form-control border-0 bg-light"
+          />
+        </div>
+
+        <div class="col-12 text-center">
+          <button class="btn btn-primary py-3 px-5" (click)="addData()">
+            Send Your Application
+                  
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

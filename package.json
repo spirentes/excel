@@ -31,6 +31,8 @@
     "firebase": "^9.9.4",
     "jquery": "^3.6.1",
     "ngx-wow": "^2.0.1",
+    "primeicons": "^6.0.1",
+    "primeng": "^14.1.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "wowjs": "^1.1.3",

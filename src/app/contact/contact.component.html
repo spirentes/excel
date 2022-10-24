@@ -83,7 +83,7 @@
               </div>
             </div>
             <div class="col-12">
-              <button class="btn btn-primary py-3 px-5"[disabled]="!this.contactForm.valid" (click)="submitData(contactForm.value)" type="submit">
+              <button class="btn btn-primary py-3 px-5"[disabled]="!this.contactForm.valid" (click)="submitData(contactForm.value)" (click)="clear()"type="submit">
                 Send Message
               </button>
             </div>

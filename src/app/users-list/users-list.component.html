@@ -1,0 +1,57 @@
+<!--<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">email</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let user of userList ; index as i" >
+      <th scope="row">{{i}}</th>
+      <td>{{user.email}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.password}}</td>
+    </tr>
+  </tbody>
+</table>-->
+ <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr  *ngFor="let user of userList ; index as i" >
+      <th scope="row">{{i}}</th>
+      <td *ngIf="user.email!=='admin@excel.com'">{{user.email}}</td>
+      <td *ngIf="user.username!=='admin'">{{user.username}}</td>
+      <td *ngIf="user.password!=='admin123'">{{user.password}}</td>
+    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>

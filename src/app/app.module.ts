@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +20,16 @@ import { CoursesComponent } from './courses/courses.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { NgwWowModule } from 'ngx-wow';
-
+import { AppointmentComponent } from './appointment/appointment.component';
+import { JobsComponent } from './jobs/jobs.component';
+import { AdminComponent } from './admin/admin.component';
+import { AppLayoutModule } from './layout/app.layout.module';
+import { DasboardComponent } from './dasboard/dasboard.component';
+import { UserComponent } from './user/user.component';
+import { HeaderComponent } from './header/header.component';
+import{ AdminRoutingModule}from'./admin/admin-routing.module';
+import { UsersListComponent } from './users-list/users-list.component';
+import{provideStorage,getStorage} from'@angular/fire/storage'
 
 @NgModule({
   declarations: [
@@ -31,6 +40,13 @@ import { NgwWowModule } from 'ngx-wow';
     CoursesComponent,
     AboutComponent,
     ContactComponent,
+    AppointmentComponent,
+    JobsComponent,
+    AdminComponent,
+    DasboardComponent,
+    UserComponent,
+    HeaderComponent,
+    UsersListComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,10 +55,12 @@ import { NgwWowModule } from 'ngx-wow';
     HotToastModule.forRoot(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    
+    provideStorage(()=>getStorage()),
     FontAwesomeModule,
     NgwWowModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AppLayoutModule,
+    AdminRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

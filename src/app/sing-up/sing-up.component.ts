@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from '../services/authentication.service';
 import { CustomValidationService } from '../services/custom-validation.service';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-sing-up',
   templateUrl: './sing-up.component.html',
@@ -15,10 +16,11 @@ export class SingUpComponent implements OnInit {
     private customValidator: CustomValidationService,
     private route: Router,
     private toast: HotToastService,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
   ) {}
   signUpForm!: FormGroup;
   ngOnInit(): void {
+
     this.signUpForm = this.fb.group(
       {
         userName: ['', [Validators.required, Validators.minLength(3)]],
@@ -34,7 +36,7 @@ export class SingUpComponent implements OnInit {
       }
     );
   }
-
+  
   get userName() {
     return this.signUpForm.get('userName');
   }
@@ -59,6 +61,7 @@ export class SingUpComponent implements OnInit {
         })
       )
       .subscribe(() => {
+        
         this.route.navigate(['/home']);
       });
   }
