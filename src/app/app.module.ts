@@ -22,6 +22,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NgwWowModule } from 'ngx-wow';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
